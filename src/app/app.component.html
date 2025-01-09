@@ -1,0 +1,40 @@
+<!--########### NAV BAR STARTS HERE ##################################################### -->
+
+<nav class="navbar navbar-expand-sm  bg-primary navbar-dark ">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Ashok IT</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          
+          <li class="nav-item">
+            <a routerLink="contacts" routerLinkActive="active" class="nav-link" href="#">Contact List</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="create-contact" routerLinkActive="active" class="nav-link" href="#">Add Contact</a>
+          </li>
+          
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" [(ngModel)]="searchText">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+  
+  
+  <!-- #####################NAV BAR ENDS HERE ############################################### -->
+  
+  <!-- MAIN CONTENT HERE -->
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+  
+  <footer class="footer">
+    <div class="container">
+      <span>All Rights Reserved 2023 @ AshokIT</span>
+    </div>
+  </footer>
