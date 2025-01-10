@@ -2,10 +2,15 @@
 - name: My play build and push docker image
   hosts: docker
   tasks: 
-    - name: Copy Dockerfile
+    - name: Copy project file to docker host
       copy:
-        src: Dockerfile
-        dest: /home/ansadmin/frontend
+        src: "{{ item }}"
+        dest: /home/ansadmin/frontend/
+       with_items:
+        - Dockerfile
+        - package.json
+        - package-lock.json
+        - src/    
     - name: Build docker image
       command: docker build -t sushila91/surajit:contact_ui_app /home/ansadmin/frontend  
     - name: Push docker image
