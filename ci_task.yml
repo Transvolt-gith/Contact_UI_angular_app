@@ -2,18 +2,22 @@
 - name: My play build and push docker image
   hosts: docker
   tasks: 
-    - name: Copy project file to docker host
+    - name: Compress project files
+      command: tar -czf /tmp/project.tar.gz -C /home/ansadmin/slavenode/workspace/Frontend_CI_Job_MS .
+
+    - name: Copy tarball to Docker host
       copy:
-        src: "{{ item }}"
-        dest: /home/ansadmin/frontend/
-      with_items:
-        - Dockerfile
-        - package.json
-        - package-lock.json
-        - src/
-        - .vscode
+        src: /tmp/project.tar.gz
+        dest: /home/ansadmin/project.tar.gz
+
+    - name: Extract tarball on Docker host
+      ansible.builtin.unarchive:
+        src: /home/ansadmin/project.tar.gz
+        dest: /home/ansadmin/frontend
+        remote_src: yes
+
     - name: Build docker image
       command: docker build -t sushila91/surajit:contact_ui_app /home/ansadmin/frontend  
     - name: Push docker image
       command: docker push sushila91/surajit:contact_ui_app
-...      
+...        
