@@ -10,7 +10,8 @@
         - Dockerfile
         - package.json
         - package-lock.json
-        - src/    
+        - src/
+        - .vscode
     - name: Build docker image
       command: docker build -t sushila91/surajit:contact_ui_app /home/ansadmin/frontend  
     - name: Push docker image
