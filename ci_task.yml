@@ -1,0 +1,13 @@
+---
+- name: My play build and push docker image
+  hosts: docker
+  tasks: 
+    - name: Copy Dockerfile
+      copy:
+        src: Dockerfile
+        dest: /home/ansadmin/frontend
+    - name: Build docker image
+      command: docker build -t sushila91/surajit:contact_ui_app /home/ansadmin/frontend  
+    - name: Push docker image
+      command: docker push sushila91/surajit:contact_ui_app
+...      
