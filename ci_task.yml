@@ -6,7 +6,7 @@
       copy:
         src: "{{ item }}"
         dest: /home/ansadmin/frontend/
-       with_items:
+      with_items:
         - Dockerfile
         - package.json
         - package-lock.json
