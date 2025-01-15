@@ -1,6 +1,6 @@
 ---
 - name: Build docker image and push docker image
-  hosts: docker
+  hosts: docker-fe
   tasks:
     - name: Copy project files to docker host
       copy:
