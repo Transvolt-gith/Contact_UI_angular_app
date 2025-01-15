@@ -1,0 +1,11 @@
+---
+- name: Copy K8s deployment yml
+  hosts: ekshost
+  tasks:
+    - name: Copy K8s deployment yml
+      copy:
+        src: contact_ui_deployment.yml
+        dest: /home/ansadmin/frontend
+    - name: Deployment of K8s yml file
+      command: kubectl deploy -f /home/ansadmin/frontend
+...          
