@@ -7,5 +7,5 @@
         src: contact_ui_deployment.yml
         dest: /home/ansadmin/frontend
     - name: Deployment of K8s yml file
-      command: kubectl deploy -f /home/ansadmin/frontend
+      command: kubectl apply -f /home/ansadmin/frontend/contact_ui_deployment.yml
 ...          
